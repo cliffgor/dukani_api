@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class AuthController {
-    @GetMapping("hello")
-    fun hello(): String {
-        return "hello"
+    @GetMapping("register")
+    fun register(): String {
+        return "register your credentials"
     }
 }
