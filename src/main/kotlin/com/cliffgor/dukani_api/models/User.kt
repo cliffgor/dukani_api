@@ -5,6 +5,7 @@ import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 
 @Entity
 class User {
@@ -20,5 +21,10 @@ class User {
 
     @Column
     var password = ""
+        get() = field
+        set(value) {
+            val passwordEncoder = BCryptPasswordEncoder()
+            field =  passwordEncoder.encode(value)
+        }
 
 }
