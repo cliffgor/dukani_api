@@ -44,7 +44,8 @@ class AuthController(private val userService: UserService) {
         val jwt = Jwts.builder()
             .setIssuer(issuer)
             .setExpiration(Date(System.currentTimeMillis() + 60*24*1000)) //Expiration set to 1 day
-            .signWith(SignatureAlgorithm.HS256, secretKey).compact()
+            .signWith(SignatureAlgorithm.HS512, secretKey)//Signs the token with the secret key
+            .compact()
 
         return ResponseEntity.ok(jwt)
     }
